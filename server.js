@@ -5,6 +5,7 @@ const fs = require('fs');
 const express = require('express');
 const robot = require('robotjs');
 const cors = require('cors');
+const path = require('path');
 const os = require('os');
 
 const app = express();
@@ -19,6 +20,12 @@ const options = {
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
+
+// মূল রুটে ('/') কেউ ভিজিট করলে index.html ফাইলটি দেখানোর জন্য
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // '/scan' নামে একটি API এন্ডপয়েন্ট তৈরি করা
 app.post('/scan', (req, res) => {
