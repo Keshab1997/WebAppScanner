@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Barcode Scanner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Web Barcode Scanner</h1>
+        <div id="video-container">
+            <video id="video" playsinline></video>
+        </div>
+        <p>Result: <strong id="result">Scanning...</strong></p>
+        <p id="status" class="status-ok">Ready to scan</p>
+    </div>
+
+    <!-- ZXing লাইব্রেরি CDN থেকে লোড করা হচ্ছে -->
+    <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest"></script>
+    <script src="script.js"></script>
+</body>
+</html>
